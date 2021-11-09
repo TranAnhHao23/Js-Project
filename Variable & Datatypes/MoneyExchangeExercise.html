@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Money Exchange</title>
+
+</head>
+<style>
+    table{
+        width: 500px;
+        height: 50px;
+    }
+    td,th{
+        width: 25%;
+        text-align: center;
+    }
+</style>
+<body>
+<form>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="test"></td>
+            <td>
+                <select name="from" id="from">
+                    <option value="vn" id="vn1">VietNam</option>
+                    <option value="usd" id="usd1">USD</option>
+                </select>
+            </td>
+            <td>
+                <select name="to" id="to">
+                    <option value="usd" id="usd2">USD</option>
+                    <option value="vn" id="vn2">VietNam</option>
+                </select>
+            </td>
+            <td>
+                <input type="button" value="Convert" onclick="moneyExchange()">
+            </td>
+        </tr>
+    </table>
+    <p id="result">
+    </p>
+    <script>
+    function moneyExchange() {
+        let dauVao = document.getElementById("test").value;
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        if (from == to) {
+            document.getElementById("result").innerText = "Result = " + dauVao;
+        }
+        if (from == "vn" && to == "usd") {
+            document.getElementById("result").innerText = "Result = " + dauVao / 23000 + "USD";
+        }
+        if (from == "usd" && to == "vn") {
+            document.getElementById("result").innerText = "Result = " + dauVao * 23000 + "VNĐ";
+        }
+    }
+
+
+    </script>
+</form>
+</body>
+</html>
